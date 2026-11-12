@@ -1,0 +1,9 @@
+Project: DevOps Portfolio
+Environment: Development
+Version: 1.0
+Deployment Status: Not Started
+
+Tasks:
+- Create Azure virtual machine
+- Configure network security
+- Test SSH connectivity
