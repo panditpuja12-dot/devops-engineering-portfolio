@@ -1,0 +1,1275 @@
+Welcome to Ubuntu 22.04.5 LTS (GNU/Linux 6.8.0-1064-gcp x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ * Strictly confined Kubernetes makes edge and IoT secure. Learn how MicroK8s
+   just raised the bar for easy, resilient and secure K8s cluster deployment.
+
+   https://ubuntu.com/engage/secure-kubernetes-at-the-edge
+
+This system has been minimized by removing packages and content that are
+not required on a system that users do not log into.
+
+To restore this content, you can run the 'unminimize' command.
+
+Expanded Security Maintenance for Applications is not enabled.
+
+0 updates can be applied immediately.
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+New release '24.04.4 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+*** System restart required ***
+Last login: Tue Jul 28 13:16:36 2026 from 35.235.249.249
+poojapandit_central@devops:~$ sudo apt clean
+poojapandit_central@devops:~$ sudo apt autoremove
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+poojapandit_central@devops:~$ rmdir devopsdemo
+rmdir: failed to remove 'devopsdemo': Directory not empty
+poojapandit_central@devops:~$ cd devopsdemo/
+poojapandit_central@devops:~/devopsdemo$ ls -ltr
+total 0
+-rw-rw-r-- 1 poojapandit_central poojapandit_central 0 Jul 28 12:59 File4.txt
+-rw-rw-r-- 1 poojapandit_central poojapandit_central 0 Jul 28 12:59 File3.txt
+poojapandit_central@devops:~/devopsdemo$ rm File4.txt
+poojapandit_central@devops:~/devopsdemo$ ls -ltr
+total 0
+-rw-rw-r-- 1 poojapandit_central poojapandit_central 0 Jul 28 12:59 File3.txt
+poojapandit_central@devops:~/devopsdemo$ rm File4.txt
+rm: cannot remove 'File4.txt': No such file or directory
+poojapandit_central@devops:~/devopsdemo$ rm File3.txt
+poojapandit_central@devops:~/devopsdemo$ ls -ltr
+total 0
+poojapandit_central@devops:~/devopsdemo$ rm devopsdemo
+rm: cannot remove 'devopsdemo': No such file or directory
+poojapandit_central@devops:~/devopsdemo$ cd 
+poojapandit_central@devops:~$ rm devopsdemo/
+rm: cannot remove 'devopsdemo/': Is a directory
+poojapandit_central@devops:~$ git clone https://github.com/panditpuja12-dot/devopsdemo.git
+fatal: destination path 'devopsdemo' already exists and is not an empty directory.
+poojapandit_central@devops:~$ cd devopsdemo/
+poojapandit_central@devops:~/devopsdemo$ git branch
+  feature1
+* master
+poojapandit_central@devops:~/devopsdemo$ touch File1.txt
+poojapandit_central@devops:~/devopsdemo$ touch File2.txt
+poojapandit_central@devops:~/devopsdemo$ git add .
+poojapandit_central@devops:~/devopsdemo$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        renamed:    File3.txt -> File1.txt
+        renamed:    File4.txt -> File2.txt
+        deleted:    file1.txt
+        deleted:    file2.txt
+        deleted:    file3.txt
+
+poojapandit_central@devops:~/devopsdemo$ ls -ltr
+total 0
+-rw-rw-r-- 1 poojapandit_central poojapandit_central 0 Jul 28 13:33 File1.txt
+-rw-rw-r-- 1 poojapandit_central poojapandit_central 0 Jul 28 13:33 File2.txt
+poojapandit_central@devops:~/devopsdemo$ git commit -m "My first commit"
+[master c9f56c4] My first commit
+ 5 files changed, 0 insertions(+), 0 deletions(-)
+ rename File3.txt => File1.txt (100%)
+ rename File4.txt => File2.txt (100%)
+ delete mode 100644 file1.txt
+ delete mode 100644 file2.txt
+ delete mode 100644 file3.txt
+poojapandit_central@devops:~/devopsdemo$ git push
+Username for 'https://github.com': panditpuja12
+Password for 'https://panditpuja12@github.com': 
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (7/7), done.
+Writing objects: 100% (9/9), 766 bytes | 766.00 KiB/s, done.
+Total 9 (delta 2), reused 4 (delta 1), pack-reused 0
+remote: Resolving deltas: 100% (2/2), done.
+remote: 
+remote: Create a pull request for 'master' on GitHub by visiting:
+remote:      https://github.com/panditpuja12-dot/devopsdemo/pull/new/master
+remote: 
+To https://github.com/panditpuja12-dot/devopsdemo.git
+ * [new branch]      master -> master
+poojapandit_central@devops:~/devopsdemo$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+poojapandit_central@devops:~/devopsdemo$ ls -ltr
+total 0
+-rw-rw-r-- 1 poojapandit_central poojapandit_central 0 Jul 28 13:33 File1.txt
+-rw-rw-r-- 1 poojapandit_central poojapandit_central 0 Jul 28 13:33 File2.txt
+poojapandit_central@devops:~/devopsdemo$ git push 
+Username for 'https://github.com': panditpuja12
+Password for 'https://panditpuja12@github.com': 
+Everything up-to-date
+poojapandit_central@devops:~/devopsdemo$ git clone https://github.com/panditpuja12-dot/devopsdemo.git
+Cloning into 'devopsdemo'...
+remote: Enumerating objects: 12, done.
+remote: Counting objects: 100% (12/12), done.
+remote: Compressing objects: 100% (7/7), done.
+remote: Total 12 (delta 2), reused 9 (delta 2), pack-reused 0 (from 0)
+Receiving objects: 100% (12/12), done.
+Resolving deltas: 100% (2/2), done.
+poojapandit_central@devops:~/devopsdemo$ ls -ltr
+total 4
+-rw-rw-r-- 1 poojapandit_central poojapandit_central    0 Jul 28 13:33 File1.txt
+-rw-rw-r-- 1 poojapandit_central poojapandit_central    0 Jul 28 13:33 File2.txt
+drwxrwxr-x 3 poojapandit_central poojapandit_central 4096 Jul 28 13:54 devopsdemo
+poojapandit_central@devops:~/devopsdemo$ touch devops1.txt
+poojapandit_central@devops:~/devopsdemo$ git add .
+warning: adding embedded git repository: devopsdemo
+hint: You've added another git repository inside your current repository.
+hint: Clones of the outer repository will not contain the contents of
+hint: the embedded repository and will not know how to obtain it.
+hint: If you meant to add a submodule, use:
+hint: 
+hint:   git submodule add <url> devopsdemo
+hint: 
+hint: If you added this path by mistake, you can remove it from the
+hint: index with:
+hint: 
+hint:   git rm --cached devopsdemo
+hint: 
+hint: See "git help submodule" for more information.
+poojapandit_central@devops:~/devopsdemo$ git rm --cached devopsdemo
+error: the following file has staged content different from both the
+file and the HEAD:
+    devopsdemo
+(use -f to force removal)
+poojapandit_central@devops:~/devopsdemo$ ls -ltr
+total 4
+-rw-rw-r-- 1 poojapandit_central poojapandit_central    0 Jul 28 13:33 File1.txt
+-rw-rw-r-- 1 poojapandit_central poojapandit_central    0 Jul 28 13:33 File2.txt
+drwxrwxr-x 3 poojapandit_central poojapandit_central 4096 Jul 28 13:54 devopsdemo
+-rw-rw-r-- 1 poojapandit_central poojapandit_central    0 Jul 28 13:56 devops1.txt
+poojapandit_central@devops:~/devopsdemo$ git commit -m "testing personal access"
+[master fc2e0ee] testing personal access
+ 2 files changed, 1 insertion(+)
+ create mode 100644 devops1.txt
+ create mode 160000 devopsdemo
+poojapandit_central@devops:~/devopsdemo$ git push
+Username for 'https://github.com': panditpuja12
+Password for 'https://panditpuja12@github.com': 
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (2/2), 284 bytes | 284.00 KiB/s, done.
+Total 2 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/panditpuja12-dot/devopsdemo.git
+   c9f56c4..fc2e0ee  master -> master
+poojapandit_central@devops:~/devopsdemo$ ls -ltr
+total 4
+-rw-rw-r-- 1 poojapandit_central poojapandit_central    0 Jul 28 13:33 File1.txt
+-rw-rw-r-- 1 poojapandit_central poojapandit_central    0 Jul 28 13:33 File2.txt
+drwxrwxr-x 3 poojapandit_central poojapandit_central 4096 Jul 28 13:54 devopsdemo
+-rw-rw-r-- 1 poojapandit_central poojapandit_central    0 Jul 28 13:56 devops1.txt
+poojapandit_central@devops:~/devopsdemo$ cd
+poojapandit_central@devops:~$ git clone https://github.com/panditpuja12-dot/devops_day2.git
+Cloning into 'devops_day2'...
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+Receiving objects: 100% (3/3), done.
+poojapandit_central@devops:~$ cd devops_day2
+poojapandit_central@devops:~/devops_day2$ ls -ltr
+total 4
+-rw-rw-r-- 1 poojapandit_central poojapandit_central 13 Jul 28 14:02 README.md
+poojapandit_central@devops:~/devops_day2$ touch File1.txt
+poojapandit_central@devops:~/devops_day2$ touch File2.txt
+poojapandit_central@devops:~/devops_day2$ git add .
+poojapandit_central@devops:~/devops_day2$ git commit -m "testing file1 & 2"
+[main c0fd1c1] testing file1 & 2
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 File1.txt
+ create mode 100644 File2.txt
+poojapandit_central@devops:~/devops_day2$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+poojapandit_central@devops:~/devops_day2$ git push 
+Username for 'https://github.com': panditpuja12
+Password for 'https://panditpuja12@github.com': 
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 281 bytes | 281.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/panditpuja12-dot/devops_day2.git
+   07df59e..c0fd1c1  main -> main
+poojapandit_central@devops:~/devops_day2$ git branch feature2
+poojapandit_central@devops:~/devops_day2$ git checkout feature2
+Switched to branch 'feature2'
+poojapandit_central@devops:~/devops_day2$ touch File3.txt
+poojapandit_central@devops:~/devops_day2$ touch File4.txt
+poojapandit_central@devops:~/devops_day2$ ls -ltr
+total 4
+-rw-rw-r-- 1 poojapandit_central poojapandit_central 13 Jul 28 14:02 README.md
+-rw-rw-r-- 1 poojapandit_central poojapandit_central  0 Jul 28 14:03 File1.txt
+-rw-rw-r-- 1 poojapandit_central poojapandit_central  0 Jul 28 14:03 File2.txt
+-rw-rw-r-- 1 poojapandit_central poojapandit_central  0 Jul 28 14:07 File3.txt
+-rw-rw-r-- 1 poojapandit_central poojapandit_central  0 Jul 28 14:07 File4.txt
+poojapandit_central@devops:~/devops_day2$ git add .
+poojapandit_central@devops:~/devops_day2$ git commit -m "My feature2 commit"
+[feature2 3b89299] My feature2 commit
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 File3.txt
+ create mode 100644 File4.txt
+poojapandit_central@devops:~/devops_day2$ git branch
+* feature2
+  main
+poojapandit_central@devops:~/devops_day2$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+poojapandit_central@devops:~/devops_day2$ ls -ltr
+total 4
+-rw-rw-r-- 1 poojapandit_central poojapandit_central 13 Jul 28 14:02 README.md
+-rw-rw-r-- 1 poojapandit_central poojapandit_central  0 Jul 28 14:03 File1.txt
+-rw-rw-r-- 1 poojapandit_central poojapandit_central  0 Jul 28 14:03 File2.txt
+poojapandit_central@devops:~/devops_day2$ git merge feature2
+Updating c0fd1c1..3b89299
+Fast-forward
+ File3.txt | 0
+ File4.txt | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 File3.txt
+ create mode 100644 File4.txt
+poojapandit_central@devops:~/devops_day2$ ls -ltr
+total 4
+-rw-rw-r-- 1 poojapandit_central poojapandit_central 13 Jul 28 14:02 README.md
+-rw-rw-r-- 1 poojapandit_central poojapandit_central  0 Jul 28 14:03 File1.txt
+-rw-rw-r-- 1 poojapandit_central poojapandit_central  0 Jul 28 14:03 File2.txt
+-rw-rw-r-- 1 poojapandit_central poojapandit_central  0 Jul 28 14:09 File4.txt
+-rw-rw-r-- 1 poojapandit_central poojapandit_central  0 Jul 28 14:09 File3.txt
+poojapandit_central@devops:~/devops_day2$ https://github.com/panditpuja12-dot/devops_day2.git
+
+poojapandit_central@devops:~$ mkdir gitdemo
+poojapandit_central@devops:~$ cd gitdemo
+poojapandit_central@devops:~/gitdemo$ git init
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint: 
+hint:   git config --global init.defaultBranch <name>
+hint: 
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint: 
+hint:   git branch -m <name>
+Initialized empty Git repository in /home/poojapandit_central/gitdemo/.git/
+poojapandit_central@devops:~/gitdemo$ touch file1.txt file2.txt
+poojapandit_central@devops:~/gitdemo$ git add .
+poojapandit_central@devops:~/gitdemo$ git commit -m "first commit"
+[master (root-commit) 9637eb0] first commit
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 file1.txt
+ create mode 100644 file2.txt
+poojapandit_central@devops:~/gitdemo$ git status
+On branch master
+nothing to commit, working tree clean
+poojapandit_central@devops:~/gitdemo$ git branch
+* master
+poojapandit_central@devops:~/gitdemo$ git branch featureA
+poojapandit_central@devops:~/gitdemo$ touch file3.txt
+poojapandit_central@devops:~/gitdemo$ git add .
+poojapandit_central@devops:~/gitdemo$ git commit -m "second commiy"
+[master 14b105e] second commiy
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 file3.txt
+poojapandit_central@devops:~/gitdemo$ git log
+commit 14b105e5d098250188caad0196e32356fce522e8 (HEAD -> master)
+Author: panditpuja12 <panditpuja12@gmail.com>
+Date:   Thu Jul 30 07:00:45 2026 +0000
+
+    second commiy
+
+commit 9637eb079b35b547203c549fe627139c72feff48 (featureA)
+Author: panditpuja12 <panditpuja12@gmail.com>
+Date:   Thu Jul 30 06:59:35 2026 +0000
+
+    first commit
+poojapandit_central@devops:~/gitdemo$ git checkout featureA
+Switched to branch 'featureA'
+poojapandit_central@devops:~/gitdemo$ touch file4.txt
+poojapandit_central@devops:~/gitdemo$ git add .
+poojapandit_central@devops:~/gitdemo$ git commit -m "file4 created in feature
+"
+[featureA 575a706] file4 created in feature
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 file4.txt
+poojapandit_central@devops:~/gitdemo$ git log --graph --pretty=online
+fatal: invalid --pretty format: online
+poojapandit_central@devops:~/gitdemo$ touch file5.txt
+poojapandit_central@devops:~/gitdemo$ git add .
+poojapandit_central@devops:~/gitdemo$ git commit -m "file5 created in feature"
+[featureA ed057ad] file5 created in feature
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 file5.txt
+poojapandit_central@devops:~/gitdemo$ git checkout master
+Switched to branch 'master'
+poojapandit_central@devops:~/gitdemo$ git log --graph --pretty=online
+fatal: invalid --pretty format: online
+poojapandit_central@devops:~/gitdemo$ git merge featureA
+hint: Waiting for your editor to close the file... 
+[1]+  Stopped                 git merge featureA
+poojapandit_central@devops:~/gitdemo$ git log --graph --pretty=oneline
+* 14b105e5d098250188caad0196e32356fce522e8 (HEAD -> master) second commiy
+* 9637eb079b35b547203c549fe627139c72feff48 first commit
+poojapandit_central@devops:~/gitdemo$ git log --graph --pretty=oneline
+* 14b105e5d098250188caad0196e32356fce522e8 (HEAD -> master) second commiy
+* 9637eb079b35b547203c549fe627139c72feff48 first commit
+poojapandit_central@devops:~/gitdemo$ git merge featureA
+fatal: You have not concluded your merge (MERGE_HEAD exists).
+Please, commit your changes before you merge.
+poojapandit_central@devops:~/gitdemo$ git commit -m "merging branch into FeatureA"
+[master 85d1f6b] merging branch into FeatureA
+poojapandit_central@devops:~/gitdemo$ git merge featureA
+Already up to date.
+poojapandit_central@devops:~/gitdemo$ git log --graph --pretty=oneline
+*   85d1f6b51f3735aa3728e8dfb18b597f4406fafa (HEAD -> master) merging branch into FeatureA
+|\  
+| * ed057adf8cb82f5e6233463d7fab6bc4325040a5 (featureA) file5 created in feature
+| * 575a706127b98c101f2b7b13cf40449dd9150789 file4 created in feature
+* | 14b105e5d098250188caad0196e32356fce522e8 second commiy
+|/  
+* 9637eb079b35b547203c549fe627139c72feff48 first commit
+poojapandit_central@devops:~/gitdemo$ git checkout 
+poojapandit_central@devops:~/gitdemo$ git status
+On branch master
+nothing to commit, working tree clean
+poojapandit_central@devops:~/gitdemo$ git branch
+  featureA
+* master
+poojapandit_central@devops:~/gitdemo$ ls -ltr
+total 0
+-rw-rw-r-- 1 poojapandit_central poojapandit_central 0 Jul 30 06:59 file2.txt
+-rw-rw-r-- 1 poojapandit_central poojapandit_central 0 Jul 30 06:59 file1.txt
+-rw-rw-r-- 1 poojapandit_central poojapandit_central 0 Jul 30 07:03 file3.txt
+-rw-rw-r-- 1 poojapandit_central poojapandit_central 0 Jul 30 07:03 file5.txt
+-rw-rw-r-- 1 poojapandit_central poojapandit_central 0 Jul 30 07:03 file4.txt
+poojapandit_central@devops:~/gitdemo$ touch file6.txt
+poojapandit_central@devops:~/gitdemo$ git add .
+poojapandit_central@devops:~/gitdemo$ git commit -m "file6 created in master"
+[master 1f9e056] file6 created in master
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 file6.txt
+poojapandit_central@devops:~/gitdemo$ git log --graph --pretty=oneline
+* 1f9e056282156b4f022cf4a2f3132cffbbaa589f (HEAD -> master) file6 created in master
+*   85d1f6b51f3735aa3728e8dfb18b597f4406fafa merging branch into FeatureA
+|\  
+| * ed057adf8cb82f5e6233463d7fab6bc4325040a5 (featureA) file5 created in feature
+| * 575a706127b98c101f2b7b13cf40449dd9150789 file4 created in feature
+* | 14b105e5d098250188caad0196e32356fce522e8 second commiy
+|/  
+* 9637eb079b35b547203c549fe627139c72feff48 first commit
+poojapandit_central@devops:~/gitdemo$ git checkout featureA
+Switched to branch 'featureA'
+poojapandit_central@devops:~/gitdemo$ ls -ltr
+total 0
+-rw-rw-r-- 1 poojapandit_central poojapandit_central 0 Jul 30 06:59 file2.txt
+-rw-rw-r-- 1 poojapandit_central poojapandit_central 0 Jul 30 06:59 file1.txt
+-rw-rw-r-- 1 poojapandit_central poojapandit_central 0 Jul 30 07:03 file5.txt
+-rw-rw-r-- 1 poojapandit_central poojapandit_central 0 Jul 30 07:03 file4.txt
+poojapandit_central@devops:~/gitdemo$ git log --graph --pretty=oneline
+* ed057adf8cb82f5e6233463d7fab6bc4325040a5 (HEAD -> featureA) file5 created in feature
+* 575a706127b98c101f2b7b13cf40449dd9150789 file4 created in feature
+* 9637eb079b35b547203c549fe627139c72feff48 first commit
+poojapandit_central@devops:~/gitdemo$ git rebase master
+Successfully rebased and updated refs/heads/featureA.
+poojapandit_central@devops:~/gitdemo$ git log --graph --pretty=oneline
+* 1f9e056282156b4f022cf4a2f3132cffbbaa589f (HEAD -> featureA, master) file6 created in master
+*   85d1f6b51f3735aa3728e8dfb18b597f4406fafa merging branch into FeatureA
+|\  
+| * ed057adf8cb82f5e6233463d7fab6bc4325040a5 file5 created in feature
+| * 575a706127b98c101f2b7b13cf40449dd9150789 file4 created in feature
+* | 14b105e5d098250188caad0196e32356fce522e8 second commiy
+|/  
+* 9637eb079b35b547203c549fe627139c72feff48 first commit
+poojapandit_central@devops:~/gitdemo$ 
+
+*** System restart required ***
+Last login: Sat Aug  1 09:13:37 2026 from 35.235.249.248
+poojapandit_central@docker:~$ sudo su - ubuntu
+ubuntu@docker:~$ cd docker/
+ubuntu@docker:~/docker$ ls -ltr
+total 0
+ubuntu@docker:~/docker$ sudo vim Dockerfile
+
+ubuntu@docker:~/docker$ ls -ltr
+total 0
+ubuntu@docker:~/docker$ vim Dockerfile
+
+[1]+  Stopped                 vim Dockerfile
+ubuntu@docker:~/docker$ vim Dockerfile
+
+[2]+  Stopped                 vim Dockerfile
+ubuntu@docker:~/docker$ vim Dockerfile
+
+[No write since last change]
+
+Press ENTER or type command to continue
+[No write since last change]
+
+Press ENTER or type command to continue
+[No write since last change]
+
+Press ENTER or type command to continue
+[3]+  Stopped                 vim Dockerfile
+ubuntu@docker:~/docker$ vim Dockerfile
+
+[No write since last change]
+
+Press ENTER or type command to continue
+ubuntu@docker:~/docker$ vim Dockerfile
+ubuntu@docker:~/docker$ sudo vim index.html
+ubuntu@docker:~/docker$ sudo vim index.html
+ubuntu@docker:~/docker$ docker build -t ubuntu_apache
+ERROR: docker: 'docker buildx build' requires 1 argument
+
+Usage:  docker buildx build [OPTIONS] PATH | URL | -
+
+Run 'docker buildx build --help' for more information
+ubuntu@docker:~/docker$ docker build . -t ubuntu_apache
+[+] Building 0.1s (1/1) FINISHED                              docker:default
+ => [internal] load build definition from Dockerfile                    0.1s
+ => => transferring dockerfile: 287B                                    0.0s
+Dockerfile:10
+--------------------
+   8 |     ENV name Devops Tutorial
+   9 |     
+  10 | >>> :w!
+  11 |     
+  12 |     
+--------------------
+ERROR: failed to build: failed to solve: dockerfile parse error on line 10: unknown instruction: :w!
+ubuntu@docker:~/docker$ pwd
+/home/ubuntu/docker
+ubuntu@docker:~/docker$ ^C
+ubuntu@docker:~/docker$ ls
+Dockerfile  index.html
+ubuntu@docker:~/docker$ docker build . -t ubuntu_apache
+[+] Building 0.1s (1/1) FINISHED                              docker:default
+ => [internal] load build definition from Dockerfile                    0.0s
+ => => transferring dockerfile: 287B                                    0.0s
+Dockerfile:10
+--------------------
+   8 |     ENV name Devops Tutorial
+   9 |     
+  10 | >>> :w!
+  11 |     
+  12 |     
+--------------------
+ERROR: failed to build: failed to solve: dockerfile parse error on line 10: unknown instruction: :w!
+ubuntu@docker:~/docker$ vim dockerfile
+ubuntu@docker:~/docker$ vim Dockerfile
+ubuntu@docker:~/docker$ docker build . -t ubuntu_apache
+[+] Building 45.6s (10/10) FINISHED                           docker:default
+ => [internal] load build definition from Dockerfile                    0.0s
+ => => transferring dockerfile: 314B                                    0.0s
+ => WARN: JSONArgsRecommended: JSON arguments recommended for ENTRYPOI  0.0s
+ => WARN: LegacyKeyValueFormat: "ENV key=value" should be used instead  0.0s
+ => [internal] load metadata for docker.io/library/ubuntu:latest        0.0s
+ => [internal] load .dockerignore                                       0.0s
+ => => transferring context: 2B                                         0.0s
+ => [internal] load build context                                       0.0s
+ => => transferring context: 29.28kB                                    0.0s
+ => [1/5] FROM docker.io/library/ubuntu:latest@sha256:3131b4cc82a783df  0.1s
+ => => resolve docker.io/library/ubuntu:latest@sha256:3131b4cc82a783df  0.0s
+ => [2/5] RUN ln -snf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime   0.6s
+ => [3/5] RUN apt-get update                                            9.5s
+ => [4/5] RUN apt-get -y install apache2                               25.8s 
+ => [5/5] ADD . /var/www/html                                           0.1s 
+ => exporting to image                                                  9.3s 
+ => => exporting layers                                                 6.3s 
+ => => exporting manifest sha256:02104c286a408c60d77c6e11c0fa1c7e46cb6  0.0s 
+ => => exporting config sha256:284e30d5f4b221aa9c55f64409cb7cc73586c4d  0.0s 
+ => => exporting attestation manifest sha256:b3cd7d076d901135b84a4670a  0.0s 
+ => => exporting manifest list sha256:6b4a0a35b68ca9f170a59d03d1612049  0.0s
+ => => naming to docker.io/library/ubuntu_apache:latest                 0.0s
+ => => unpacking to docker.io/library/ubuntu_apache:latest              2.9s
+
+ 2 warnings found (use docker --debug to expand):
+ - JSONArgsRecommended: JSON arguments recommended for ENTRYPOINT to prevent unintended behavior related to OS signals (line 7)
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 8)
+ubuntu@docker:~/docker$ sudo apt update
+Hit:1 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy InRelease
+Hit:2 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates InRelease
+Hit:3 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-backports InRelease
+Hit:4 http://security.ubuntu.com/ubuntu jammy-security InRelease            
+Hit:5 https://packages.cloud.google.com/apt google-cloud-ops-agent-jammy-2 InRelease
+Hit:6 https://download.docker.com/linux/ubuntu jammy InRelease            
+Reading package lists... Done                       
+Building dependency tree... Done
+Reading state information... Done
+3 packages can be upgraded. Run 'apt list --upgradable' to see them.
+ubuntu@docker:~/docker$ docker build . -t ubuntu_apache
+[+] Building 0.3s (10/10) FINISHED                            docker:default
+ => [internal] load build definition from Dockerfile                    0.0s
+ => => transferring dockerfile: 314B                                    0.0s
+ => WARN: JSONArgsRecommended: JSON arguments recommended for ENTRYPOI  0.0s
+ => WARN: LegacyKeyValueFormat: "ENV key=value" should be used instead  0.0s
+ => [internal] load metadata for docker.io/library/ubuntu:latest        0.0s
+ => [internal] load .dockerignore                                       0.0s
+ => => transferring context: 2B                                         0.0s
+ => [1/5] FROM docker.io/library/ubuntu:latest@sha256:3131b4cc82a783df  0.0s
+ => => resolve docker.io/library/ubuntu:latest@sha256:3131b4cc82a783df  0.0s
+ => [internal] load build context                                       0.0s
+ => => transferring context: 232B                                       0.0s
+ => CACHED [2/5] RUN ln -snf /usr/share/zoneinfo/Asia/Kolkata /etc/loc  0.0s
+ => CACHED [3/5] RUN apt-get update                                     0.0s
+ => CACHED [4/5] RUN apt-get -y install apache2                         0.0s
+ => CACHED [5/5] ADD . /var/www/html                                    0.0s
+ => exporting to image                                                  0.1s
+ => => exporting layers                                                 0.0s
+ => => exporting manifest sha256:02104c286a408c60d77c6e11c0fa1c7e46cb6  0.0s
+ => => exporting config sha256:284e30d5f4b221aa9c55f64409cb7cc73586c4d  0.0s
+ => => exporting attestation manifest sha256:f0141143a9a47b2d15004a9ab  0.0s
+ => => exporting manifest list sha256:be6f85e3dd7695b8634f50fb50f3819b  0.0s
+ => => naming to docker.io/library/ubuntu_apache:latest                 0.0s
+ => => unpacking to docker.io/library/ubuntu_apache:latest              0.0s
+
+ 2 warnings found (use docker --debug to expand):
+ - JSONArgsRecommended: JSON arguments recommended for ENTRYPOINT to prevent unintended behavior related to OS signals (line 7)
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 8)
+ubuntu@docker:~/docker$ docker run -it -name myapache -p 81:80 -d ubuntu_apache
+unknown shorthand flag: 'n' in -name
+
+Usage:  docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
+
+Run 'docker run --help' for more information
+ubuntu@docker:~/docker$ docker run -it -p 81:80 -d ubuntu_apache
+6dfe6f2804e1ac92a184ce30da4e8c5367a5d2058a6593695953f926ed7d2e78
+ubuntu@docker:~/docker$ docker ps
+CONTAINER ID   IMAGE           COMMAND                  CREATED         STATUS         PORTS                                 NAMES
+6dfe6f2804e1   ubuntu_apache   "/bin/sh -c 'apachec…"   7 seconds ago   Up 6 seconds   0.0.0.0:81->80/tcp, [::]:81->80/tcp   kind_pare
+ubuntu@docker:~/docker$ docker exec -ti ^C
+ubuntu@docker:~/docker$ docker exec -ti 6dfe6f2804e1 bash
+root@6dfe6f2804e1:/# echo $name
+Devops Tutorial
+root@6dfe6f2804e1:/# 
+poojapandit_central@ansiblemaster:~$ sudo su - ubuntu
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+ubuntu@ansiblemaster:~$ sudo apt update
+Hit:1 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy InRelease
+Hit:2 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates InRelease                                
+Hit:3 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-backports InRelease                              
+Hit:4 http://security.ubuntu.com/ubuntu jammy-security InRelease                                              
+Hit:5 https://packages.cloud.google.com/apt google-cloud-ops-agent-jammy-2 InRelease
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+6 packages can be upgraded. Run 'apt list --upgradable' to see them.
+ubuntu@ansiblemaster:~$ sudo apt install software-properties-common
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  iso-codes libappstream4 libcurl3-gnutls libglib2.0-bin libgstreamer1.0-0
+  libstemmer0d libxml2 libxmlb2 packagekit packagekit-tools policykit-1
+  python3-software-properties
+Suggested packages:
+  isoquery gstreamer1.0-tools appstream
+The following NEW packages will be installed:
+  iso-codes libappstream4 libcurl3-gnutls libglib2.0-bin libgstreamer1.0-0
+  libstemmer0d libxml2 libxmlb2 packagekit packagekit-tools policykit-1
+  python3-software-properties software-properties-common
+0 upgraded, 13 newly installed, 0 to remove and 6 not upgraded.
+Need to get 6514 kB of archives.
+After this operation, 30.4 MB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy/main amd64 iso-codes all 4.9.0-1 [3459 kB]
+Get:2 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates/main amd64 libxml2 amd64 2.9.13+dfsg-1ubuntu0.12 [765 kB]
+Get:3 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates/main amd64 libcurl3-gnutls amd64 7.81.0-1ubuntu1.25 [284 kB]
+Get:4 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy/main amd64 libstemmer0d amd64 2.2.0-1build1 [165 kB]
+Get:5 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates/main amd64 libxmlb2 amd64 0.3.24-1~ubuntu0.22.04.1 [67.9 kB]
+Get:6 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy/main amd64 libappstream4 amd64 0.15.2-2 [192 kB]
+Get:7 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates/main amd64 libglib2.0-bin amd64 2.72.4-0ubuntu2.9 [80.9 kB]
+Get:8 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates/main amd64 libgstreamer1.0-0 amd64 1.20.3-0ubuntu1.1 [984 kB]
+Get:9 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates/main amd64 policykit-1 amd64 0.105-33ubuntu0.1 [2438 B]
+Get:10 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates/main amd64 packagekit amd64 1.2.5-2ubuntu3.1 [442 kB]
+Get:11 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates/main amd64 packagekit-tools amd64 1.2.5-2ubuntu3.1 [28.8 kB]
+Get:12 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates/main amd64 python3-software-properties all 0.99.22.9 [28.8 kB]
+Get:13 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates/main amd64 software-properties-common all 0.99.22.9 [14.1 kB]
+Fetched 6514 kB in 0s (14.4 MB/s)                       
+debconf: delaying package configuration, since apt-utils is not installed
+Selecting previously unselected package iso-codes.
+(Reading database ... 52683 files and directories currently installed.)
+Preparing to unpack .../00-iso-codes_4.9.0-1_all.deb ...
+Unpacking iso-codes (4.9.0-1) ...
+Selecting previously unselected package libxml2:amd64.
+Preparing to unpack .../01-libxml2_2.9.13+dfsg-1ubuntu0.12_amd64.deb ...
+Unpacking libxml2:amd64 (2.9.13+dfsg-1ubuntu0.12) ...
+Selecting previously unselected package libcurl3-gnutls:amd64.
+Preparing to unpack .../02-libcurl3-gnutls_7.81.0-1ubuntu1.25_amd64.deb ...
+Unpacking libcurl3-gnutls:amd64 (7.81.0-1ubuntu1.25) ...
+Selecting previously unselected package libstemmer0d:amd64.
+Preparing to unpack .../03-libstemmer0d_2.2.0-1build1_amd64.deb ...
+Unpacking libstemmer0d:amd64 (2.2.0-1build1) ...
+Selecting previously unselected package libxmlb2:amd64.
+Preparing to unpack .../04-libxmlb2_0.3.24-1~ubuntu0.22.04.1_amd64.deb ...
+Unpacking libxmlb2:amd64 (0.3.24-1~ubuntu0.22.04.1) ...
+Selecting previously unselected package libappstream4:amd64.
+Preparing to unpack .../05-libappstream4_0.15.2-2_amd64.deb ...
+Unpacking libappstream4:amd64 (0.15.2-2) ...
+Selecting previously unselected package libglib2.0-bin.
+Preparing to unpack .../06-libglib2.0-bin_2.72.4-0ubuntu2.9_amd64.deb ...
+Unpacking libglib2.0-bin (2.72.4-0ubuntu2.9) ...
+Selecting previously unselected package libgstreamer1.0-0:amd64.
+Preparing to unpack .../07-libgstreamer1.0-0_1.20.3-0ubuntu1.1_amd64.deb ...
+Unpacking libgstreamer1.0-0:amd64 (1.20.3-0ubuntu1.1) ...
+Selecting previously unselected package policykit-1.
+Preparing to unpack .../08-policykit-1_0.105-33ubuntu0.1_amd64.deb ...
+Unpacking policykit-1 (0.105-33ubuntu0.1) ...
+Selecting previously unselected package packagekit.
+Preparing to unpack .../09-packagekit_1.2.5-2ubuntu3.1_amd64.deb ...
+Unpacking packagekit (1.2.5-2ubuntu3.1) ...
+Selecting previously unselected package packagekit-tools.
+Preparing to unpack .../10-packagekit-tools_1.2.5-2ubuntu3.1_amd64.deb ...
+Unpacking packagekit-tools (1.2.5-2ubuntu3.1) ...
+Selecting previously unselected package python3-software-properties.
+Preparing to unpack .../11-python3-software-properties_0.99.22.9_all.deb ...
+Unpacking python3-software-properties (0.99.22.9) ...
+Selecting previously unselected package software-properties-common.
+Preparing to unpack .../12-software-properties-common_0.99.22.9_all.deb ...
+Unpacking software-properties-common (0.99.22.9) ...
+Setting up libxmlb2:amd64 (0.3.24-1~ubuntu0.22.04.1) ...
+Setting up libglib2.0-bin (2.72.4-0ubuntu2.9) ...
+Setting up libcurl3-gnutls:amd64 (7.81.0-1ubuntu1.25) ...
+Setting up libstemmer0d:amd64 (2.2.0-1build1) ...
+Setting up libxml2:amd64 (2.9.13+dfsg-1ubuntu0.12) ...
+Setting up policykit-1 (0.105-33ubuntu0.1) ...
+Setting up iso-codes (4.9.0-1) ...
+Setting up libgstreamer1.0-0:amd64 (1.20.3-0ubuntu1.1) ...
+Setcap worked! gst-ptp-helper is not suid!
+Setting up libappstream4:amd64 (0.15.2-2) ...
+Setting up python3-software-properties (0.99.22.9) ...
+Setting up packagekit (1.2.5-2ubuntu3.1) ...
+Created symlink /etc/systemd/user/sockets.target.wants/pk-debconf-helper.socket → /usr/lib/systemd/user/pk-debconf-helper.socket.
+Setting up packagekit-tools (1.2.5-2ubuntu3.1) ...
+Setting up software-properties-common (0.99.22.9) ...
+Processing triggers for libc-bin (2.35-0ubuntu3.13) ...
+Processing triggers for dbus (1.12.20-2ubuntu4.1) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (No usable dialog-like program is installed, so the dialog based frontend cannot be used. at /usr/share/perl5/Debconf/FrontEnd/Dialog.pm line 78.)
+debconf: falling back to frontend: Readline
+Scanning processes...                                                        
+Scanning linux images...                                                     
+
+Running kernel seems to be up-to-date.
+
+No services need to be restarted.
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+ubuntu@ansiblemaster:~$ sudo apt-add-repository --yes --update ppa:ansible/ansible
+Repository: 'deb https://ppa.launchpadcontent.net/ansible/ansible/ubuntu/ jammy main'
+Description:
+Ansible is a radically simple IT automation platform that makes your applications and systems easier to deploy. Avoid writing scripts or custom code to deploy and update your applications— automate in a language that approaches plain English, using SSH, with no agents to install on remote systems.
+
+http://ansible.com/
+
+If you face any issues while installing Ansible PPA, file an issue here:
+https://github.com/ansible-community/ppa/issues
+More info: https://launchpad.net/~ansible/+archive/ubuntu/ansible
+Adding repository.
+Adding deb entry to /etc/apt/sources.list.d/ansible-ubuntu-ansible-jammy.list
+Adding disabled deb-src entry to /etc/apt/sources.list.d/ansible-ubuntu-ansible-jammy.list
+Adding key to /etc/apt/trusted.gpg.d/ansible-ubuntu-ansible.gpg with fingerprint 6125E2A8C77F2818FB7BD15B93C4A3FD7BB9C367
+Hit:1 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy InRelease
+Hit:2 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates InRelease
+Hit:3 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-backports InRelease
+Hit:4 http://security.ubuntu.com/ubuntu jammy-security InRelease            
+Hit:5 https://packages.cloud.google.com/apt google-cloud-ops-agent-jammy-2 InRelease
+Get:6 https://ppa.launchpadcontent.net/ansible/ansible/ubuntu jammy InRelease [18.0 kB]
+Get:7 https://ppa.launchpadcontent.net/ansible/ansible/ubuntu jammy/main amd64 Packages [1124 B]
+Get:8 https://ppa.launchpadcontent.net/ansible/ansible/ubuntu jammy/main Translation-en [752 B]
+Fetched 19.9 kB in 2s (11.8 kB/s)       
+Reading package lists... Done
+ubuntu@ansiblemaster:~$ sudo apt install ansible
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  ansible-core libsodium23 python3-bcrypt python3-jmespath python3-kerberos
+  python3-nacl python3-ntlm-auth python3-paramiko python3-requests-kerberos
+  python3-requests-ntlm python3-resolvelib python3-winrm python3-xmltodict
+  sshpass
+Suggested packages:
+  python-nacl-doc python3-gssapi python3-invoke
+The following NEW packages will be installed:
+  ansible ansible-core libsodium23 python3-bcrypt python3-jmespath
+  python3-kerberos python3-nacl python3-ntlm-auth python3-paramiko
+  python3-requests-kerberos python3-requests-ntlm python3-resolvelib
+  python3-winrm python3-xmltodict sshpass
+0 upgraded, 15 newly installed, 0 to remove and 6 not upgraded.
+Need to get 19.4 MB of archives.
+After this operation, 214 MB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy/universe amd64 python3-resolvelib all 0.8.1-1 [23.6 kB]
+Get:2 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates/main amd64 libsodium23 amd64 1.0.18-1ubuntu0.22.04.1 [164 kB]
+Get:3 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy/main amd64 python3-jmespath all 0.10.0-1 [21.7 kB]
+Get:4 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy/universe amd64 python3-kerberos amd64 1.1.14-3.1build5 [23.0 kB]
+Get:5 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy/main amd64 python3-nacl amd64 1.5.0-2 [63.1 kB]
+Get:6 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy/universe amd64 python3-ntlm-auth all 1.4.0-1 [20.4 kB]
+Get:7 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy/main amd64 python3-bcrypt amd64 3.2.0-1build1 [32.7 kB]
+Get:8 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates/main amd64 python3-paramiko all 2.9.3-0ubuntu1.3 [134 kB]
+Get:9 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy/universe amd64 python3-requests-kerberos all 0.12.0-2 [11.9 kB]
+Get:10 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy/universe amd64 python3-requests-ntlm all 1.1.0-1.1 [6160 B]
+Get:11 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy/universe amd64 python3-xmltodict all 0.12.0-2 [12.6 kB]
+Get:12 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy/universe amd64 python3-winrm all 0.3.0-2 [21.7 kB]
+Get:13 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy/universe amd64 sshpass amd64 1.09-1 [11.7 kB]
+Get:14 https://ppa.launchpadcontent.net/ansible/ansible/ubuntu jammy/main amd64 ansible-core all 2.17.14-1ppa~jammy [1017 kB]
+Get:15 https://ppa.launchpadcontent.net/ansible/ansible/ubuntu jammy/main amd64 ansible all 10.7.0-1ppa~jammy [17.9 MB]
+Fetched 19.4 MB in 2s (8774 kB/s)   
+debconf: delaying package configuration, since apt-utils is not installed
+Selecting previously unselected package python3-resolvelib.
+(Reading database ... 54093 files and directories currently installed.)
+Preparing to unpack .../00-python3-resolvelib_0.8.1-1_all.deb ...
+Unpacking python3-resolvelib (0.8.1-1) ...
+Selecting previously unselected package ansible-core.
+Preparing to unpack .../01-ansible-core_2.17.14-1ppa~jammy_all.deb ...
+Unpacking ansible-core (2.17.14-1ppa~jammy) ...
+Selecting previously unselected package ansible.
+Preparing to unpack .../02-ansible_10.7.0-1ppa~jammy_all.deb ...
+Unpacking ansible (10.7.0-1ppa~jammy) ...
+Selecting previously unselected package libsodium23:amd64.
+Preparing to unpack .../03-libsodium23_1.0.18-1ubuntu0.22.04.1_amd64.deb ...
+Unpacking libsodium23:amd64 (1.0.18-1ubuntu0.22.04.1) ...
+Selecting previously unselected package python3-jmespath.
+Preparing to unpack .../04-python3-jmespath_0.10.0-1_all.deb ...
+Unpacking python3-jmespath (0.10.0-1) ...
+Selecting previously unselected package python3-kerberos.
+Preparing to unpack .../05-python3-kerberos_1.1.14-3.1build5_amd64.deb ...
+Unpacking python3-kerberos (1.1.14-3.1build5) ...
+Selecting previously unselected package python3-nacl.
+Preparing to unpack .../06-python3-nacl_1.5.0-2_amd64.deb ...
+Unpacking python3-nacl (1.5.0-2) ...
+Selecting previously unselected package python3-ntlm-auth.
+Preparing to unpack .../07-python3-ntlm-auth_1.4.0-1_all.deb ...
+Unpacking python3-ntlm-auth (1.4.0-1) ...
+Selecting previously unselected package python3-bcrypt.
+Preparing to unpack .../08-python3-bcrypt_3.2.0-1build1_amd64.deb ...
+Unpacking python3-bcrypt (3.2.0-1build1) ...
+Selecting previously unselected package python3-paramiko.
+Preparing to unpack .../09-python3-paramiko_2.9.3-0ubuntu1.3_all.deb ...
+Unpacking python3-paramiko (2.9.3-0ubuntu1.3) ...
+Selecting previously unselected package python3-requests-kerberos.
+Preparing to unpack .../10-python3-requests-kerberos_0.12.0-2_all.deb ...
+Unpacking python3-requests-kerberos (0.12.0-2) ...
+Selecting previously unselected package python3-requests-ntlm.
+Preparing to unpack .../11-python3-requests-ntlm_1.1.0-1.1_all.deb ...
+Unpacking python3-requests-ntlm (1.1.0-1.1) ...
+Selecting previously unselected package python3-xmltodict.
+Preparing to unpack .../12-python3-xmltodict_0.12.0-2_all.deb ...
+Unpacking python3-xmltodict (0.12.0-2) ...
+Selecting previously unselected package python3-winrm.
+Preparing to unpack .../13-python3-winrm_0.3.0-2_all.deb ...
+Unpacking python3-winrm (0.3.0-2) ...
+Selecting previously unselected package sshpass.
+Preparing to unpack .../14-sshpass_1.09-1_amd64.deb ...
+Unpacking sshpass (1.09-1) ...
+Setting up libsodium23:amd64 (1.0.18-1ubuntu0.22.04.1) ...
+Setting up python3-ntlm-auth (1.4.0-1) ...
+Setting up python3-bcrypt (3.2.0-1build1) ...
+Setting up python3-resolvelib (0.8.1-1) ...
+Setting up python3-kerberos (1.1.14-3.1build5) ...
+Setting up ansible-core (2.17.14-1ppa~jammy) ...
+Setting up sshpass (1.09-1) ...
+Setting up python3-xmltodict (0.12.0-2) ...
+Setting up python3-jmespath (0.10.0-1) ...
+Setting up python3-requests-kerberos (0.12.0-2) ...
+Setting up ansible (10.7.0-1ppa~jammy) ...
+Setting up python3-nacl (1.5.0-2) ...
+Setting up python3-requests-ntlm (1.1.0-1.1) ...
+Setting up python3-winrm (0.3.0-2) ...
+Setting up python3-paramiko (2.9.3-0ubuntu1.3) ...
+Processing triggers for libc-bin (2.35-0ubuntu3.13) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (No usable dialog-like program is installed, so the dialog based frontend cannot be used. at /usr/share/perl5/Debconf/FrontEnd/Dialog.pm line 78.)
+debconf: falling back to frontend: Readline
+Scanning processes...                                                        
+Scanning linux images...                                                     
+
+Running kernel seems to be up-to-date.
+
+No services need to be restarted.
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+ubuntu@ansiblemaster:~$ ansible --version
+ansible [core 2.17.14]
+  config file = /etc/ansible/ansible.cfg
+  configured module search path = ['/home/ubuntu/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3/dist-packages/ansible
+  ansible collection location = /home/ubuntu/.ansible/collections:/usr/share/ansible/collections
+  executable location = /usr/bin/ansible
+  python version = 3.10.12 (main, Jun 22 2026, 18:55:27) [GCC 11.4.0] (/usr/bin/python3)
+  jinja version = 3.0.3
+  libyaml = True
+ubuntu@ansiblemaster:~$ ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/ubuntu/.ssh/id_rsa): 
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/ubuntu/.ssh/id_rsa
+Your public key has been saved in /home/ubuntu/.ssh/id_rsa.pub
+The key fingerprint is:
+SHA256:O3/NZQz91fQhkkuiVB+h4XBKtb5I/n5hNob7xDz3YxU ubuntu@ansiblemaster
+The key's randomart image is:
++---[RSA 3072]----+
+|       oo= oo    |
+|      ..=.=+.. ..|
+|      ...+o.o .o+|
+|       ..  .  .E=|
+|       .S..    o+|
+|      o .o+*    *|
+|       oo.==o+ o.|
+|        .+..+ +o |
+|        .o+o  ...|
++----[SHA256]-----+
+ubuntu@ansiblemaster:~$ ^C
+ubuntu@ansiblemaster:~$ ls -tlr .ssh
+total 8
+-rw------- 1 ubuntu ubuntu    0 Aug  3 05:23 authorized_keys
+-rw------- 1 ubuntu ubuntu 2610 Aug  3 05:29 id_rsa
+-rw-r--r-- 1 ubuntu ubuntu  574 Aug  3 05:29 id_rsa.pub
+ubuntu@ansiblemaster:~$ cat .ssh/id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCh3mlyTcbPK+RetbypJN/rX3NL/LWg92OI0A6JX4uO/C+dvBS/T2okDKV+VOBevRWBe6IuhDHHflhlm5lnxFqmxiYWI02QqK2q2HFKSm/y+botYi1pgvT3SZYaanJ2bkMV4P2idEC11ER3Flqn96S4r6i9IriKB87SDSOeb1WDgl40cp/HG9nFV0Z84wxx+MyG5eD1lj368eLFwbW9ukH6i/dH44t+RoifHxEprQncpZtDkhdSDqaa89wq18Hl+thkNN9zfz0qeEiMlh/JRiAxlB1T8d5aQ1xhZtWUAIlxPehlfK5kK1WT0cOih9+3YTRKXQnWEOs4q0qvs7yP0QcKmTize9ejJycHsOCec+d34AXJ13IvB3u7F/bOf+Bm9usaHLcG/SOQteLtPuDUgGU4Co/M5VLSS8SQpKYq2Hqhg9SGje7DsP2VKohRrd9908Re3wAI3AK/rGRlSS+SMuIA2TAx+TsLC1XuuLHlYbY7l6C7xl0sGWkGSKvkaEWVCHc= ubuntu@ansiblemaster
+ubuntu@ansiblemaster:~$ ^C
+ubuntu@ansiblemaster:~$ ^C
+ubuntu@ansiblemaster:~$ ssh ansibleslave
+The authenticity of host 'ansibleslave (10.128.0.9)' can't be established.
+ED25519 key fingerprint is SHA256:LWDLS9xE5+SH9swWI3ZkJmuulmmVWJdkKAGNn67bZZo.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'ansibleslave' (ED25519) to the list of known hosts.
+Welcome to Ubuntu 22.04.5 LTS (GNU/Linux 6.8.0-1064-gcp x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+
+This system has been minimized by removing packages and content that are
+not required on a system that users do not log into.
+
+To restore this content, you can run the 'unminimize' command.
+
+Expanded Security Maintenance for Applications is not enabled.
+
+6 updates can be applied immediately.
+6 of these updates are standard security updates.
+To see these additional updates run: apt list --upgradable
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+New release '24.04.4 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+ubuntu@ansibleslave:~$ logout
+Connection to ansibleslave closed.
+ubuntu@ansiblemaster:~$ sudo apt install vim -y
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  vim-common vim-runtime
+Suggested packages:
+  ctags vim-doc vim-scripts
+The following NEW packages will be installed:
+  vim vim-common vim-runtime
+0 upgraded, 3 newly installed, 0 to remove and 6 not upgraded.
+Need to get 8645 kB of archives.
+After this operation, 38.0 MB of additional disk space will be used.
+Get:1 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates/main amd64 vim-common all 2:8.2.3995-1ubuntu2.34 [81.5 kB]
+Get:2 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates/main amd64 vim-runtime all 2:8.2.3995-1ubuntu2.34 [6831 kB]
+Get:3 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates/main amd64 vim amd64 2:8.2.3995-1ubuntu2.34 [1732 kB]
+Fetched 8645 kB in 0s (32.8 MB/s)
+debconf: delaying package configuration, since apt-utils is not installed
+Selecting previously unselected package vim-common.
+(Reading database ... 79633 files and directories currently installed.)
+Preparing to unpack .../vim-common_2%3a8.2.3995-1ubuntu2.34_all.deb ...
+Unpacking vim-common (2:8.2.3995-1ubuntu2.34) ...
+Selecting previously unselected package vim-runtime.
+Preparing to unpack .../vim-runtime_2%3a8.2.3995-1ubuntu2.34_all.deb ...
+Adding 'diversion of /usr/share/vim/vim82/doc/help.txt to /usr/share/vim/vim82/doc/help.txt.vim-tiny by vim-runtime'
+Adding 'diversion of /usr/share/vim/vim82/doc/tags to /usr/share/vim/vim82/doc/tags.vim-tiny by vim-runtime'
+Unpacking vim-runtime (2:8.2.3995-1ubuntu2.34) ...
+Selecting previously unselected package vim.
+Preparing to unpack .../vim_2%3a8.2.3995-1ubuntu2.34_amd64.deb ...
+Unpacking vim (2:8.2.3995-1ubuntu2.34) ...
+Setting up vim-common (2:8.2.3995-1ubuntu2.34) ...
+Setting up vim-runtime (2:8.2.3995-1ubuntu2.34) ...
+Setting up vim (2:8.2.3995-1ubuntu2.34) ...
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/vim (vim) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/vimdiff (vimdiff) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/rvim (rvim) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/rview (rview) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/vi (vi) in auto mode
+update-alternatives: warning: skip creation of /usr/share/man/da/man1/vi.1.gz because associated file /usr/share/man/da/man1/vim.1.gz (of link group vi) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/de/man1/vi.1.gz because associated file /usr/share/man/de/man1/vim.1.gz (of link group vi) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/fr/man1/vi.1.gz because associated file /usr/share/man/fr/man1/vim.1.gz (of link group vi) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/it/man1/vi.1.gz because associated file /usr/share/man/it/man1/vim.1.gz (of link group vi) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/ja/man1/vi.1.gz because associated file /usr/share/man/ja/man1/vim.1.gz (of link group vi) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/pl/man1/vi.1.gz because associated file /usr/share/man/pl/man1/vim.1.gz (of link group vi) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/ru/man1/vi.1.gz because associated file /usr/share/man/ru/man1/vim.1.gz (of link group vi) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/man1/vi.1.gz because associated file /usr/share/man/man1/vim.1.gz (of link group vi) doesn't exist
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/view (view) in auto mode
+update-alternatives: warning: skip creation of /usr/share/man/da/man1/view.1.gz because associated file /usr/share/man/da/man1/vim.1.gz (of link group view) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/de/man1/view.1.gz because associated file /usr/share/man/de/man1/vim.1.gz (of link group view) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/fr/man1/view.1.gz because associated file /usr/share/man/fr/man1/vim.1.gz (of link group view) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/it/man1/view.1.gz because associated file /usr/share/man/it/man1/vim.1.gz (of link group view) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/ja/man1/view.1.gz because associated file /usr/share/man/ja/man1/vim.1.gz (of link group view) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/pl/man1/view.1.gz because associated file /usr/share/man/pl/man1/vim.1.gz (of link group view) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/ru/man1/view.1.gz because associated file /usr/share/man/ru/man1/vim.1.gz (of link group view) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/man1/view.1.gz because associated file /usr/share/man/man1/vim.1.gz (of link group view) doesn't exist
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/ex (ex) in auto mode
+update-alternatives: warning: skip creation of /usr/share/man/da/man1/ex.1.gz because associated file /usr/share/man/da/man1/vim.1.gz (of link group ex) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/de/man1/ex.1.gz because associated file /usr/share/man/de/man1/vim.1.gz (of link group ex) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/fr/man1/ex.1.gz because associated file /usr/share/man/fr/man1/vim.1.gz (of link group ex) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/it/man1/ex.1.gz because associated file /usr/share/man/it/man1/vim.1.gz (of link group ex) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/ja/man1/ex.1.gz because associated file /usr/share/man/ja/man1/vim.1.gz (of link group ex) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/pl/man1/ex.1.gz because associated file /usr/share/man/pl/man1/vim.1.gz (of link group ex) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/ru/man1/ex.1.gz because associated file /usr/share/man/ru/man1/vim.1.gz (of link group ex) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/man1/ex.1.gz because associated file /usr/share/man/man1/vim.1.gz (of link group ex) doesn't exist
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/editor (editor) in auto mode
+update-alternatives: warning: skip creation of /usr/share/man/da/man1/editor.1.gz because associated file /usr/share/man/da/man1/vim.1.gz (of link group editor) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/de/man1/editor.1.gz because associated file /usr/share/man/de/man1/vim.1.gz (of link group editor) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/fr/man1/editor.1.gz because associated file /usr/share/man/fr/man1/vim.1.gz (of link group editor) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/it/man1/editor.1.gz because associated file /usr/share/man/it/man1/vim.1.gz (of link group editor) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/ja/man1/editor.1.gz because associated file /usr/share/man/ja/man1/vim.1.gz (of link group editor) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/pl/man1/editor.1.gz because associated file /usr/share/man/pl/man1/vim.1.gz (of link group editor) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/ru/man1/editor.1.gz because associated file /usr/share/man/ru/man1/vim.1.gz (of link group editor) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/man1/editor.1.gz because associated file /usr/share/man/man1/vim.1.gz (of link group editor) doesn't exist
+debconf: unable to initialize frontend: Dialog
+debconf: (No usable dialog-like program is installed, so the dialog based frontend cannot be used. at /usr/share/perl5/Debconf/FrontEnd/Dialog.pm line 78.)
+debconf: falling back to frontend: Readline
+Scanning processes...                                                        
+Scanning linux images...                                                     
+
+Running kernel seems to be up-to-date.
+
+No services need to be restarted.
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+ubuntu@ansiblemaster:~$ vim .ssh/authorized_keys 
+ubuntu@ansiblemaster:~$ vim .ssh/authorized_keys 
+ubuntu@ansiblemaster:~$ whoami
+ubuntu
+ubuntu@ansiblemaster:~$ vim /etc/ansible/hosts 
+ubuntu@ansiblemaster:~$ sudo vim /etc/ansible/hosts 
+ubuntu@ansiblemaster:~$ ansible -m ping ansiblemaster
+The authenticity of host 'ansiblemaster (10.128.0.8)' can't be established.
+ED25519 key fingerprint is SHA256:tlcQ8vtk8KnsGRqiPH3ibo/mqwMS7RFZyj3/eVXCxJ4.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+[WARNING]: Platform linux on host ansiblemaster is using the discovered Python
+interpreter at /usr/bin/python3.10, but future installation of another Python
+interpreter could change the meaning of that path. See
+https://docs.ansible.com/ansible-
+core/2.17/reference_appendices/interpreter_discovery.html for more information.
+ansiblemaster | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3.10"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+ubuntu@ansiblemaster:~$ ansible -m ping ansibleslave
+[WARNING]: Platform linux on host ansibleslave is using the discovered Python
+interpreter at /usr/bin/python3.10, but future installation of another Python
+interpreter could change the meaning of that path. See
+https://docs.ansible.com/ansible-
+core/2.17/reference_appendices/interpreter_discovery.html for more information.
+ansibleslave | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3.10"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+ubuntu@ansiblemaster:~$ 
+poojapandit_central@ansibleslave:~$ sudo su - ubuntu
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+ubuntu@ansibleslave:~$ sudo apt update
+Hit:1 https://packages.cloud.google.com/apt google-cloud-ops-agent-jammy-2 InRelease
+Hit:2 http://security.ubuntu.com/ubuntu jammy-security InRelease                            
+Hit:3 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy InRelease                      
+Hit:4 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates InRelease
+Hit:5 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-backports InRelease
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+6 packages can be upgraded. Run 'apt list --upgradable' to see them.
+ubuntu@ansibleslave:~$ ls 
+ubuntu@ansibleslave:~$ ls -ltr .ssh
+total 0
+-rw------- 1 ubuntu ubuntu 0 Aug  3 05:24 authorized_keys
+ubuntu@ansibleslave:~$ vim .ssh/authorized_keys 
+-bash: vim: command not found
+ubuntu@ansibleslave:~$ vim .ssh/authorized_keys
+-bash: vim: command not found
+ubuntu@ansibleslave:~$ ls -ltr .ssh
+total 0
+-rw------- 1 ubuntu ubuntu 0 Aug  3 05:24 authorized_keys
+ubuntu@ansibleslave:~$ vim .ssh/authorized_keys 
+-bash: vim: command not found
+ubuntu@ansibleslave:~$ sudo vim .ssh/authorized_keys 
+sudo: vim: command not found
+ubuntu@ansibleslave:~$ ^C
+ubuntu@ansibleslave:~$ sudo apt install vim -y
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  libsodium23 vim-common vim-runtime
+Suggested packages:
+  ctags vim-doc vim-scripts
+The following NEW packages will be installed:
+  libsodium23 vim vim-common vim-runtime
+0 upgraded, 4 newly installed, 0 to remove and 6 not upgraded.
+Need to get 8809 kB of archives.
+After this operation, 38.4 MB of additional disk space will be used.
+Get:1 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates/main amd64 vim-common all 2:8.2.3995-1ubuntu2.34 [81.5 kB]
+Get:2 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates/main amd64 libsodium23 amd64 1.0.18-1ubuntu0.22.04.1 [164 kB]
+Get:3 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates/main amd64 vim-runtime all 2:8.2.3995-1ubuntu2.34 [6831 kB]
+Get:4 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates/main amd64 vim amd64 2:8.2.3995-1ubuntu2.34 [1732 kB]
+Fetched 8809 kB in 1s (15.7 MB/s)
+debconf: delaying package configuration, since apt-utils is not installed
+Selecting previously unselected package vim-common.
+(Reading database ... 52683 files and directories currently installed.)
+Preparing to unpack .../vim-common_2%3a8.2.3995-1ubuntu2.34_all.deb ...
+Unpacking vim-common (2:8.2.3995-1ubuntu2.34) ...
+Selecting previously unselected package libsodium23:amd64.
+Preparing to unpack .../libsodium23_1.0.18-1ubuntu0.22.04.1_amd64.deb ...
+Unpacking libsodium23:amd64 (1.0.18-1ubuntu0.22.04.1) ...
+Selecting previously unselected package vim-runtime.
+Preparing to unpack .../vim-runtime_2%3a8.2.3995-1ubuntu2.34_all.deb ...
+Adding 'diversion of /usr/share/vim/vim82/doc/help.txt to /usr/share/vim/vim82/doc/help.txt.vim-tiny by vim-runtime'
+Adding 'diversion of /usr/share/vim/vim82/doc/tags to /usr/share/vim/vim82/doc/tags.vim-tiny by vim-runtime'
+Unpacking vim-runtime (2:8.2.3995-1ubuntu2.34) ...
+Selecting previously unselected package vim.
+Preparing to unpack .../vim_2%3a8.2.3995-1ubuntu2.34_amd64.deb ...
+Unpacking vim (2:8.2.3995-1ubuntu2.34) ...
+Setting up libsodium23:amd64 (1.0.18-1ubuntu0.22.04.1) ...
+Setting up vim-common (2:8.2.3995-1ubuntu2.34) ...
+Setting up vim-runtime (2:8.2.3995-1ubuntu2.34) ...
+Setting up vim (2:8.2.3995-1ubuntu2.34) ...
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/vim (vim) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/vimdiff (vimdiff) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/rvim (rvim) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/rview (rview) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/vi (vi) in auto mode
+update-alternatives: warning: skip creation of /usr/share/man/da/man1/vi.1.gz because associated file /usr/share/man/da/man1/vim.1.gz (of link group vi) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/de/man1/vi.1.gz because associated file /usr/share/man/de/man1/vim.1.gz (of link group vi) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/fr/man1/vi.1.gz because associated file /usr/share/man/fr/man1/vim.1.gz (of link group vi) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/it/man1/vi.1.gz because associated file /usr/share/man/it/man1/vim.1.gz (of link group vi) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/ja/man1/vi.1.gz because associated file /usr/share/man/ja/man1/vim.1.gz (of link group vi) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/pl/man1/vi.1.gz because associated file /usr/share/man/pl/man1/vim.1.gz (of link group vi) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/ru/man1/vi.1.gz because associated file /usr/share/man/ru/man1/vim.1.gz (of link group vi) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/man1/vi.1.gz because associated file /usr/share/man/man1/vim.1.gz (of link group vi) doesn't exist
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/view (view) in auto mode
+update-alternatives: warning: skip creation of /usr/share/man/da/man1/view.1.gz because associated file /usr/share/man/da/man1/vim.1.gz (of link group view) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/de/man1/view.1.gz because associated file /usr/share/man/de/man1/vim.1.gz (of link group view) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/fr/man1/view.1.gz because associated file /usr/share/man/fr/man1/vim.1.gz (of link group view) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/it/man1/view.1.gz because associated file /usr/share/man/it/man1/vim.1.gz (of link group view) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/ja/man1/view.1.gz because associated file /usr/share/man/ja/man1/vim.1.gz (of link group view) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/pl/man1/view.1.gz because associated file /usr/share/man/pl/man1/vim.1.gz (of link group view) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/ru/man1/view.1.gz because associated file /usr/share/man/ru/man1/vim.1.gz (of link group view) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/man1/view.1.gz because associated file /usr/share/man/man1/vim.1.gz (of link group view) doesn't exist
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/ex (ex) in auto mode
+update-alternatives: warning: skip creation of /usr/share/man/da/man1/ex.1.gz because associated file /usr/share/man/da/man1/vim.1.gz (of link group ex) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/de/man1/ex.1.gz because associated file /usr/share/man/de/man1/vim.1.gz (of link group ex) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/fr/man1/ex.1.gz because associated file /usr/share/man/fr/man1/vim.1.gz (of link group ex) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/it/man1/ex.1.gz because associated file /usr/share/man/it/man1/vim.1.gz (of link group ex) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/ja/man1/ex.1.gz because associated file /usr/share/man/ja/man1/vim.1.gz (of link group ex) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/pl/man1/ex.1.gz because associated file /usr/share/man/pl/man1/vim.1.gz (of link group ex) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/ru/man1/ex.1.gz because associated file /usr/share/man/ru/man1/vim.1.gz (of link group ex) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/man1/ex.1.gz because associated file /usr/share/man/man1/vim.1.gz (of link group ex) doesn't exist
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/editor (editor) in auto mode
+update-alternatives: warning: skip creation of /usr/share/man/da/man1/editor.1.gz because associated file /usr/share/man/da/man1/vim.1.gz (of link group editor) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/de/man1/editor.1.gz because associated file /usr/share/man/de/man1/vim.1.gz (of link group editor) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/fr/man1/editor.1.gz because associated file /usr/share/man/fr/man1/vim.1.gz (of link group editor) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/it/man1/editor.1.gz because associated file /usr/share/man/it/man1/vim.1.gz (of link group editor) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/ja/man1/editor.1.gz because associated file /usr/share/man/ja/man1/vim.1.gz (of link group editor) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/pl/man1/editor.1.gz because associated file /usr/share/man/pl/man1/vim.1.gz (of link group editor) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/ru/man1/editor.1.gz because associated file /usr/share/man/ru/man1/vim.1.gz (of link group editor) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/man1/editor.1.gz because associated file /usr/share/man/man1/vim.1.gz (of link group editor) doesn't exist
+Processing triggers for libc-bin (2.35-0ubuntu3.13) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (No usable dialog-like program is installed, so the dialog based frontend cannot be used. at /usr/share/perl5/Debconf/FrontEnd/Dialog.pm line 78.)
+debconf: falling back to frontend: Readline
+Scanning processes...                                                        
+Scanning linux images...                                                     
+
+Running kernel seems to be up-to-date.
+
+No services need to be restarted.
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+ubuntu@ansibleslave:~$ sudo vim .ssh/authorized_keys 
+
+[1]+  Stopped                 sudo vim .ssh/authorized_keys
+ubuntu@ansibleslave:~$ sudo vim .ssh/authorized_keys 
+ubuntu@ansibleslave:~$ vim .ssh/authorized_keys 
+ubuntu@ansibleslave:~$ ssg ansiblemaster
+-bash: ssg: command not found
+ubuntu@ansibleslave:~$ ssh ansiblemaster
+The authenticity of host 'ansiblemaster (10.128.0.8)' can't be established.
+ED25519 key fingerprint is SHA256:tlcQ8vtk8KnsGRqiPH3ibo/mqwMS7RFZyj3/eVXCxJ4.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'ansiblemaster' (ED25519) to the list of known hosts.
+ubuntu@ansiblemaster: Permission denied (publickey).
+ubuntu@ansibleslave:~$ logout
+There are stopped jobs.
+ubuntu@ansibleslave:~$ whoami
+ubuntu
+ubuntu@ansibleslave:~$ 
+
+poojapandit_central@ansiblemaster:~$ sudo su - ubuntu
+ubuntu@ansiblemaster:~$ mkdir ansible
+ubuntu@ansiblemaster:~$ cd ansible/
+ubuntu@ansiblemaster:~/ansible$ ls -ltr
+total 0
+ubuntu@ansiblemaster:~/ansible$ vim first_playbook.yaml
+ubuntu@ansiblemaster:~/ansible$ cat first_playbook.yaml 
+---
+- hosts: slave
+  become: yes
+  name: Play 1
+  tasks:
+    - name: Execute command ‘Date’
+      command: date
+    - name: Install nginx
+          apt: name=nginx state=latest
+ubuntu@ansiblemaster:~/ansible$ ansible-first_playbook first_playbook.yaml --syntax-check
+-bash: ansible-first_playbook: command not found
+ubuntu@ansiblemaster:~/ansible$ ansible-playbook first_playbook.yaml --syntax-check
+ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  found a tab character that violate indentation. while scanning a plain scalar
+  in "<unicode string>", line 8, column 13
+found a tab character that violate indentation
+  in "<unicode string>", line 9, column 1
+
+The error appears to be in '/home/ubuntu/ansible/first_playbook.yaml': line 9, column 1, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+    - name: Install nginx
+          apt: name=nginx state=latest
+^ here
+There appears to be a tab character at the start of the line.
+
+YAML does not use tabs for formatting. Tabs should be replaced with spaces.
+
+For example:
+    - name: update tooling
+      vars:
+        version: 1.2.3
+#    ^--- there is a tab there.
+
+Should be written as:
+    - name: update tooling
+      vars:
+        version: 1.2.3
+# ^--- all spaces here.
+ubuntu@ansiblemaster:~/ansible$ sudo vim first_playbook.yaml 
+ubuntu@ansiblemaster:~/ansible$ ansible-playbook first_playbook.yaml --syntax-check
+[WARNING]: Could not match supplied host pattern, ignoring: slave
+
+playbook: first_playbook.yaml
+ubuntu@ansiblemaster:~/ansible$ sudo vim first_playbook.yaml 
+ubuntu@ansiblemaster:~/ansible$ ansible-playbook first_playbook.yaml --syntax-check
+
+playbook: first_playbook.yaml
+ubuntu@ansiblemaster:~/ansible$ ansible-playbook first_playbook.yaml 
+
+PLAY [Play 1] **************************************************************************************************************************************************
+
+TASK [Gathering Facts] *****************************************************************************************************************************************
+[WARNING]: Platform linux on host ansibleslave is using the discovered Python interpreter at /usr/bin/python3.10, but future installation of another Python
+interpreter could change the meaning of that path. See https://docs.ansible.com/ansible-core/2.17/reference_appendices/interpreter_discovery.html for more
+information.
+ok: [ansibleslave]
+
+TASK [Execute command ‘Date’] **********************************************************************************************************************************
+changed: [ansibleslave]
+
+TASK [Install nginx] *******************************************************************************************************************************************
+changed: [ansibleslave]
+
+PLAY RECAP *****************************************************************************************************************************************************
+ansibleslave               : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+
+poojapandit_central@ansibleslave:~$ sudo su - ubuntu
+ubuntu@ansibleslave:~$ sudo apt update
+Hit:1 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy InRelease
+Hit:2 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates InRelease                                                        
+Hit:3 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-backports InRelease                                                      
+Hit:4 https://packages.cloud.google.com/apt google-cloud-ops-agent-jammy-2 InRelease                                                  
+Hit:5 http://security.ubuntu.com/ubuntu jammy-security InRelease                                                
+Reading package lists... Done                        
+Building dependency tree... Done
+Reading state information... Done
+All packages are up to date.
+ubuntu@ansibleslave:~$ dpkg -l |grep nginx
+ii  libnginx-mod-http-geoip2         1.18.0-6ubuntu14.18                     amd64        GeoIP2 HTTP module for Nginx
+ii  libnginx-mod-http-image-filter   1.18.0-6ubuntu14.18                     amd64        HTTP image filter module for Nginx
+ii  libnginx-mod-http-xslt-filter    1.18.0-6ubuntu14.18                     amd64        XSLT Transformation module for Nginx
+ii  libnginx-mod-mail                1.18.0-6ubuntu14.18                     amd64        Mail module for Nginx
+ii  libnginx-mod-stream              1.18.0-6ubuntu14.18                     amd64        Stream module for Nginx
+ii  libnginx-mod-stream-geoip2       1.18.0-6ubuntu14.18                     amd64        GeoIP2 Stream module for Nginx
+ii  nginx                            1.18.0-6ubuntu14.18                     amd64        small, powerful, scalable web/proxy server
+ii  nginx-common                     1.18.0-6ubuntu14.18                     all          small, powerful, scalable web/proxy server - common files
+ii  nginx-core                       1.18.0-6ubuntu14.18                     amd64        nginx web/proxy server (standard version)
+ubuntu@ansibleslave:~$ 
