@@ -1,4 +1,4 @@
-Project: DevOps Portfolio
+Project: DevOps Portfolio one
 Environment: Development
 Version: 1.0
 Deployment Status: Not Started
@@ -6,4 +6,4 @@ Deployment Status: Not Started
 Tasks:
 - Create Azure virtual machine
 - Configure network security
-- Test SSH connectivity
+- Test SSH connectivity using Google cloud
